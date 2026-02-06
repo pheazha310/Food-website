@@ -55,7 +55,43 @@
     justify-content: center;
     color: white;
     font-size: 4rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 24px rgba(102, 126, 234, 0.35);
+    border: 4px solid #ffffff;
 }
+
+.avatar-click {
+    cursor: pointer;
+}
+
+.avatar-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(17, 24, 39, 0.45);
+    color: #fff;
+    font-size: 1.4rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.avatar-click:hover .avatar-overlay {
+    opacity: 1;
+}
+
+.avatar-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.avatar-fallback {
+    position: absolute;
+}
+
 
 .profile-avatar h3 {
     color: #333;

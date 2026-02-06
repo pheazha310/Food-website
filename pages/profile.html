@@ -54,9 +54,14 @@
                 <!-- Profile Sidebar -->
                 <aside class="profile-sidebar">
                     <div class="profile-avatar">
-                        <div class="avatar-image">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
+                        <label class="avatar-image avatar-click" for="avatarInput" title="Change photo">
+                            <img id="avatarPhoto" class="avatar-photo" alt="Profile photo">
+                            <i class="fas fa-user-circle avatar-fallback"></i>
+                            <span class="avatar-overlay">
+                                <i class="fas fa-camera"></i>
+                            </span>
+                        </label>
+                        <input type="file" id="avatarInput" accept="image/*" hidden>
                         <h3 id="profileName"></h3>
                         <p id="profileEmail"></p>
                         <p class="member-since">Member since: <span id="memberSince">2024</span></p>

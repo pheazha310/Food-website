@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const savePreferences = document.getElementById('savePreferences');
             const changePassword = document.getElementById('changePassword');
             const saveNotifications = document.getElementById('saveNotifications');
+            const avatarInput = document.getElementById('avatarInput');
+            const avatarPhoto = document.getElementById('avatarPhoto');
+            const avatarFallback = document.querySelector('.avatar-fallback');
 
             // Load user data
             loadProfileData();
@@ -106,6 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Event Listeners - Notifications
             if (saveNotifications) saveNotifications.addEventListener('click', saveNotificationSettings);
 
+            // Event Listeners - Avatar
+            if (avatarInput) {
+                avatarInput.addEventListener('change', handleAvatarChange);
+            }
+
             // Logout handled globally in auth.js
 
             // Load profile data
@@ -116,6 +124,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('profileName').textContent = auth.currentUser.name;
                 document.getElementById('profileEmail').textContent = auth.currentUser.email;
                 document.getElementById('memberSince').textContent = new Date().getFullYear();
+
+                // Update avatar
+                if (avatarPhoto && avatarFallback) {
+                    if (auth.currentUser.photo) {
+                        avatarPhoto.src = auth.currentUser.photo;
+                        avatarPhoto.style.display = 'block';
+                        avatarFallback.style.display = 'none';
+                    } else {
+                        avatarPhoto.style.display = 'none';
+                        avatarFallback.style.display = 'block';
+                    }
+                }
 
                 // Update personal info
                 document.getElementById('infoName').textContent = auth.currentUser.name;
@@ -382,6 +402,29 @@ document.addEventListener('DOMContentLoaded', () => {
             
             showAlert('Password changed successfully!', 'success');
         }
+    }
+
+    function handleAvatarChange(e) {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        if (!file.type.startsWith('image/')) {
+            showAlert('Please select an image file', 'danger');
+            return;
+        }
+        if (file.size > 2 * 1024 * 1024) {
+            showAlert('Image must be under 2MB', 'danger');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            const dataUrl = reader.result;
+            if (auth.updateProfile({ photo: dataUrl })) {
+                loadProfileData();
+                showAlert('Profile photo updated!', 'success');
+            }
+        };
+        reader.readAsDataURL(file);
     }
     
     // Load notification settings

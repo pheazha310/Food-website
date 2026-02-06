@@ -149,6 +149,10 @@ class Auth {
             return false;
         }
 
+        if (requiredRole === 'any') {
+            return true;
+        }
+
         if (requiredRole === 'admin') {
             return this.isAdmin();
         }
@@ -170,7 +174,7 @@ class Auth {
             'strategy.html': 'admin',
             'cart.html': 'user',
             'order-history.html': 'user',
-            'profile.html': 'user'
+            'profile.html': 'any'
         };
 
         if (protectedPages[page]) {
@@ -273,6 +277,7 @@ function updateAuthUI() {
     const userGreeting = document.getElementById('userGreeting');
     const cartCount = document.getElementById('cartCount');
     const navLinks = document.querySelector('.nav-links');
+    const logo = document.querySelector('.logo');
 
     // Small helpers to safely add/remove nav items without clobbering existing markup
     const ensureNavLink = (hrefTarget, liHtml, prepend = false) => {
@@ -295,6 +300,27 @@ function updateAuthUI() {
         }
     };
 
+    const removeLogoutFromNav = () => {
+        if (!navLinks) return;
+        const logoutAnchor = navLinks.querySelector('a[href$="logout.html"], #logoutBtn');
+        if (!logoutAnchor) return;
+        const li = logoutAnchor.closest('li');
+        if (li) li.remove();
+    };
+
+    const bindLogoutHandler = () => {
+        if (!logoutBtn) return;
+        if (logoutBtn.dataset.bound === '1') return;
+        if (logoutBtn.tagName.toLowerCase() === 'a') {
+            logoutBtn.href = makeHref('logout.html');
+        }
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            handleLogout();
+        });
+        logoutBtn.dataset.bound = '1';
+    };
+
     const moveLogoutToEnd = () => {
         if (!navLinks) return;
         const logoutAnchor = navLinks.querySelector('a[href$="logout.html"], #logoutBtn');
@@ -302,6 +328,34 @@ function updateAuthUI() {
         const li = logoutAnchor.closest('li');
         if (!li || li.parentElement !== navLinks) return;
         navLinks.appendChild(li);
+    };
+
+    const moveLogoutAfter = () => {};
+
+    const ensureAdminBadge = () => {
+        if (!logo) return;
+        if (logo.querySelector('.admin-badge')) return;
+        const badge = document.createElement('span');
+        badge.className = 'admin-badge';
+        badge.innerHTML = '<i class="fas fa-shield-alt"></i> Admin';
+        logo.appendChild(badge);
+    };
+
+    const removeAdminBadge = () => {
+        if (!logo) return;
+        const badge = logo.querySelector('.admin-badge');
+        if (badge) badge.remove();
+    };
+
+    const markAdminNav = () => {
+        // Keep admin navbar styled like regular user navbar
+        const dash = navLinks ? navLinks.querySelector('a[href$="dashboard.html"]') : null;
+        if (dash) dash.classList.add('admin-pill');
+    };
+
+    const unmarkAdminNav = () => {
+        const dash = navLinks ? navLinks.querySelector('a[href$="dashboard.html"]') : null;
+        if (dash) dash.classList.remove('admin-pill');
     };
 
     // Create a simple hamburger toggle if nav exists and toggle not present
@@ -341,20 +395,11 @@ function updateAuthUI() {
         // Hide register
         if (registerBtn) registerBtn.style.display = 'none';
 
-        // Ensure there's a logout button/link visible for admin pages
-        if (logoutBtn) {
-            logoutBtn.style.display = 'block';
-            // If it's an <a>, set href; if it's a button keep it as-is
-            if (logoutBtn.tagName.toLowerCase() === 'a') {
-                logoutBtn.href = makeHref('logout.html');
-                logoutBtn.onclick = null;
-            }
-            // Ensure logout always clears session
-            logoutBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                handleLogout();
-            }, { once: true });
+        // Remove navbar logout for admin only (users keep it)
+        if (auth.isAdmin()) {
+            removeLogoutFromNav();
         }
+        bindLogoutHandler();
 
         if (userGreeting && auth.currentUser) {
             userGreeting.textContent = `Welcome, ${auth.currentUser.name}`;
@@ -372,6 +417,12 @@ function updateAuthUI() {
         if (auth.isAdmin()) {
             ensureNavLink('dashboard.html', `<a href="${makeHref('dashboard.html')}"><i class="fas fa-chart-line"></i> Dashboard</a>`, true);
             ensureNavLink('strategy.html', `<a href="${makeHref('strategy.html')}"><i class="fas fa-bullseye"></i> Strategies</a>`);
+            // Remove user-only links for admin sessions
+            ['cart.html', 'order-history.html'].forEach(removeNavLink);
+            ensureNavLink('profile.html', `<a href="${makeHref('profile.html')}"><i class="fas fa-user"></i> Profile</a>`);
+            ensureAdminBadge();
+            markAdminNav();
+            // Logout removed from navbar
         }
 
         // User links (ensure all are added)
@@ -379,9 +430,14 @@ function updateAuthUI() {
             ensureNavLink('cart.html', `<a href="${makeHref('cart.html')}"><i class="fas fa-shopping-cart"></i> Cart <span id="cartCountInline" class="badge">${cartCount ? cartCount.textContent : ''}</span></a>`);
             ensureNavLink('order-history.html', `<a href="${makeHref('order-history.html')}"><i class="fas fa-history"></i> Orders</a>`);
             ensureNavLink('profile.html', `<a href="${makeHref('profile.html')}"><i class="fas fa-user"></i> Profile</a>`);
+            ensureNavLink('logout.html', `<a href="${makeHref('logout.html')}" id="logoutBtn" class="logout-unified"><i class="fas fa-sign-out-alt"></i> Logout</a>`);
+            removeAdminBadge();
+            unmarkAdminNav();
+            moveLogoutToEnd();
         }
 
-        moveLogoutToEnd();
+        // Logout removed from navbar
+        bindLogoutHandler();
     } else {
         if (navLinks) navLinks.classList.remove('nav-auth');
         // Not logged in: set login link correctly
@@ -394,11 +450,13 @@ function updateAuthUI() {
         // Show register
         if (registerBtn) registerBtn.style.display = 'block';
 
-        // Hide logout button if present
-        if (logoutBtn) logoutBtn.style.display = 'none';
+        // Remove logout button if present
+        removeLogoutFromNav();
 
         // Remove user-specific links safely
         ['cart.html', 'order-history.html', 'profile.html', 'dashboard.html', 'strategy.html'].forEach(removeNavLink);
+        removeAdminBadge();
+        unmarkAdminNav();
 
         // Hide cart count
         if (cartCount) cartCount.style.display = 'none';
