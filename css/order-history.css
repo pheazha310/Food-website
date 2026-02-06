@@ -1,17 +1,17 @@
-/* css/order-history.css - Warm Timeline Theme */
+/* css/order-history.css - Blue/Purple Timeline Theme */
 
 :root {
     --order-ink: #1f2937;
     --order-muted: #4b5563;
-    --order-warm: #f97316;
-    --order-warm-dark: #c2410c;
-    --order-cream: #fff7ed;
-    --order-sand: #ffedd5;
+    --order-warm: #667eea;
+    --order-warm-dark: #764ba2;
+    --order-cream: #f5f7ff;
+    --order-sand: #e8edff;
 }
 
 .order-hero {
     position: relative;
-    background: linear-gradient(140deg, #fff7ed 0%, #ffedd5 45%, #fed7aa 100%);
+    background: linear-gradient(140deg, #f5f7ff 0%, #e8edff 45%, #d9e2ff 100%);
     color: var(--order-ink);
     padding: 4.5rem 0 3.5rem;
     overflow: hidden;
@@ -131,8 +131,8 @@
 
 .filter-btn {
     padding: 8px 16px;
-    background: #fff7ed;
-    border: 1px solid rgba(249, 115, 22, 0.25);
+    background: #f5f7ff;
+    border: 1px solid rgba(102, 126, 234, 0.25);
     border-radius: 999px;
     color: var(--order-ink);
     font-weight: 600;
@@ -141,14 +141,14 @@
 }
 
 .filter-btn:hover {
-    background: rgba(249, 115, 22, 0.12);
+    background: rgba(102, 126, 234, 0.12);
 }
 
 .filter-btn.active {
     background: linear-gradient(135deg, var(--order-warm) 0%, var(--order-warm-dark) 100%);
     color: white;
     border-color: transparent;
-    box-shadow: 0 10px 20px rgba(194, 65, 12, 0.3);
+    box-shadow: 0 10px 20px rgba(118, 75, 162, 0.3);
 }
 
 .date-filter {
@@ -293,7 +293,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    background: #fff7ed;
+    background: #f5f7ff;
     padding: 10px;
     border-radius: 12px;
     min-width: 200px;

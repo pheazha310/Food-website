@@ -1,7 +1,7 @@
-/* css/about.css - Green Theme */
+/* css/about.css - Blue/Purple Theme */
 
 .about-hero {
-    background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 6rem 0;
     text-align: center;
@@ -48,7 +48,7 @@
 }
 
 .about-text h2 {
-    color: #2e7d32;
+    color: #667eea;
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
 }
@@ -69,7 +69,7 @@
 
 .values-section h2 {
     text-align: center;
-    color: #2e7d32;
+    color: #667eea;
     font-size: 2.5rem;
     margin-bottom: 3rem;
 }
@@ -95,12 +95,12 @@
 
 .value-card i {
     font-size: 3rem;
-    color: #4caf50;
+    color: #764ba2;
     margin-bottom: 1rem;
 }
 
 .value-card h3 {
-    color: #2e7d32;
+    color: #667eea;
     margin-bottom: 1rem;
 }
 
@@ -114,7 +114,7 @@
 
 .team-section h2 {
     text-align: center;
-    color: #2e7d32;
+    color: #667eea;
     font-size: 2.5rem;
     margin-bottom: 3rem;
 }
@@ -146,7 +146,7 @@
 }
 
 .team-card h3 {
-    color: #2e7d32;
+    color: #667eea;
     margin: 1.5rem 0 0.5rem;
     font-size: 1.5rem;
 }

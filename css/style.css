@@ -23,17 +23,20 @@ body {
 /* Header & Navigation */
 
 :root {
-    --nav-ink: #1f2937;
-    --nav-warm: #f97316;
-    --nav-warm-dark: #c2410c;
-    --nav-cream: #fff7ed;
-    --nav-glass: rgba(255, 255, 255, 0.14);
+    --primary: #667eea;
+    --primary-dark: #5a67d8;
+    --secondary: #764ba2;
+    --ink: #1f2937;
+    --muted: #4b5563;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --glass: rgba(255, 255, 255, 0.14);
 }
 
 .header {
     position: relative;
-    background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 40%, #fdba74 100%);
-    color: var(--nav-ink);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #fff;
     padding: 0.9rem 0;
     border-bottom: 1px solid rgba(148, 163, 184, 0.25);
     box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
@@ -44,9 +47,9 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.45), transparent 45%),
-        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.35), transparent 50%),
-        linear-gradient(120deg, rgba(251, 146, 60, 0.18), transparent 60%);
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35), transparent 45%),
+        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.25), transparent 50%),
+        linear-gradient(120deg, rgba(102, 126, 234, 0.2), transparent 60%);
     pointer-events: none;
 }
 
@@ -65,11 +68,11 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--nav-ink);
+    color: #fff;
 }
 
 .logo i {
-    color: var(--nav-warm-dark);
+    color: #fff;
 }
 
 .nav-links {
@@ -81,7 +84,7 @@ body {
 
 .nav-links a {
     position: relative;
-    color: var(--nav-ink);
+    color: #fff;
     text-decoration: none;
     font-weight: 600;
     padding: 10px 16px;
@@ -111,7 +114,7 @@ body {
 }
 
 .nav-links a:hover {
-    background: var(--nav-glass);
+    background: var(--glass);
     transform: translateY(-2px);
 }
 
@@ -124,8 +127,8 @@ body {
 
 .nav-links a.active,
 .nav-links a.active-link {
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
 }
 
 .nav-links a.btn {
@@ -135,9 +138,9 @@ body {
 }
 
 .nav-links a.btn-primary {
-    background: linear-gradient(135deg, var(--nav-warm) 0%, var(--nav-warm-dark) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: #fff;
-    box-shadow: 0 12px 24px rgba(194, 65, 12, 0.3);
+    box-shadow: 0 12px 24px rgba(118, 75, 162, 0.35);
 }
 
 .nav-links a.btn-primary:hover {
@@ -163,12 +166,12 @@ body {
 
 .nav-links a#logoutBtn,
 .nav-links a[href$="logout.html"]:not(.btn) {
-    background: linear-gradient(135deg, var(--nav-warm) 0%, var(--nav-warm-dark) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: #fff;
     padding: 10px 20px;
     border-radius: 999px;
     font-weight: 700;
-    box-shadow: 0 12px 24px rgba(194, 65, 12, 0.3);
+    box-shadow: 0 12px 24px rgba(118, 75, 162, 0.35);
 }
 
 .nav-links a#logoutBtn:hover,
@@ -186,20 +189,20 @@ body {
     font-weight: 700;
     color: #fff;
     text-decoration: none;
-    background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
-    box-shadow: 0 12px 24px rgba(194, 65, 12, 0.3);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    box-shadow: 0 12px 24px rgba(118, 75, 162, 0.35);
     border: 1px solid rgba(255, 255, 255, 0.3);
     transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
 
 .logout-unified:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 30px rgba(194, 65, 12, 0.35);
+    box-shadow: 0 16px 30px rgba(118, 75, 162, 0.4);
     filter: saturate(1.1);
 }
 
 .nav-links a:focus-visible {
-    outline: 3px solid rgba(194, 65, 12, 0.5);
+    outline: 3px solid rgba(102, 126, 234, 0.5);
     outline-offset: 2px;
 }
 
@@ -213,7 +216,7 @@ body {
     display: none;
     background: transparent;
     border: none;
-    color: var(--nav-ink);
+    color: #fff;
     font-size: 1.2rem;
     cursor: pointer;
     padding: 6px;
@@ -223,7 +226,7 @@ body {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--nav-ink);
+    background: #fff;
     margin: 5px 0;
     border-radius: 2px;
     transition: transform 0.2s ease, opacity 0.2s ease;
@@ -253,7 +256,7 @@ body {
     left: 0;
     right: 0;
     z-index: 999;
-    background: rgba(255, 247, 237, 0.86);
+    background: rgba(102, 126, 234, 0.86);
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 28px rgba(15, 23, 42, 0.14);
 }
@@ -289,11 +292,11 @@ body {
         width: 100%;
     }
     .nav-links a.active-link {
-        color: #111827;
-        background: rgba(255, 255, 255, 0.95);
+        color: #fff;
+        background: rgba(255, 255, 255, 0.12);
     }
     .nav-links a.active-link::after {
-        background: #111827;
+        background: #fff;
     }
     .nav-links a::after {
         background: #fff;
@@ -365,9 +368,9 @@ body {
 
 .footer {
     position: relative;
-    background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.18), transparent 45%),
-        radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.12), transparent 40%),
-        linear-gradient(180deg, #0f172a 0%, #111827 65%, #0b1120 100%);
+    background: radial-gradient(circle at top left, rgba(102, 126, 234, 0.25), transparent 45%),
+        radial-gradient(circle at 80% 0%, rgba(118, 75, 162, 0.2), transparent 40%),
+        linear-gradient(180deg, #1f2937 0%, #111827 65%, #0b1120 100%);
     color: #e5e7eb;
     padding: 3.5rem 0 2rem;
     margin-top: 3rem;
@@ -378,7 +381,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(249, 115, 22, 0.08), transparent 60%);
+    background: linear-gradient(90deg, rgba(102, 126, 234, 0.12), transparent 60%);
     pointer-events: none;
 }
 
@@ -428,7 +431,7 @@ body {
 
 .footer ul li a::before {
     content: "•";
-    color: #f97316;
+    color: var(--primary);
     font-size: 0.8rem;
 }
 
@@ -444,7 +447,7 @@ body {
 }
 
 .footer .contact p i {
-    color: #f97316;
+    color: var(--primary);
 }
 
 .social-icons {
@@ -468,7 +471,7 @@ body {
 }
 
 .social-icons a:hover {
-    background: #f97316;
+    background: var(--primary);
     color: #0f172a;
     transform: translateY(-3px);
 }

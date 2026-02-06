@@ -106,13 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Event Listeners - Notifications
             if (saveNotifications) saveNotifications.addEventListener('click', saveNotificationSettings);
 
-            // Logout
-            const logoutBtn = document.getElementById('logoutBtn');
-            if (logoutBtn) logoutBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                auth.logout();
-                window.location.href = '../index.html';
-            });
+            // Logout handled globally in auth.js
 
             // Load profile data
             function loadProfileData() {

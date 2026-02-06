@@ -352,12 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return times[timeCode] || 'N/A';
     }
     
-    // Logout
-    document.getElementById('logoutBtn')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        auth.logout();
-        window.location.href = '../index.html';
-    });
+    // Logout handled globally in auth.js
 });
 
 function showAlert(message, type) {

@@ -205,8 +205,9 @@ class Auth {
     // New method to handle logout page redirect
     handleLogoutPageAccess() {
         if (this.isOnLogoutPage()) {
-            // If user is not logged in and trying to access logout page, redirect to home
-            if (!this.isLoggedIn()) {
+            // If user is not logged in and no logout intent, redirect to home
+            const justLoggedOut = sessionStorage.getItem('justLoggedOut') === '1';
+            if (!this.isLoggedIn() && !justLoggedOut) {
                 window.location.href = '../index.html';
                 return true;
             }
@@ -226,8 +227,12 @@ function handleLogout() {
         return;
     }
 
-    // Otherwise redirect to logout page
-    window.location.href = 'logout.html';
+    // Mark intent so logout page can render after logout
+    sessionStorage.setItem('justLoggedOut', '1');
+
+    // Redirect to logout page (respect /pages path)
+    const inPagesDir = window.location.pathname.includes('/pages/');
+    window.location.href = inPagesDir ? 'logout.html' : 'pages/logout.html';
 }
 
 // Function to show alerts
@@ -344,6 +349,11 @@ function updateAuthUI() {
                 logoutBtn.href = makeHref('logout.html');
                 logoutBtn.onclick = null;
             }
+            // Ensure logout always clears session
+            logoutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                handleLogout();
+            }, { once: true });
         }
 
         if (userGreeting && auth.currentUser) {
@@ -399,6 +409,42 @@ function updateAuthUI() {
 document.addEventListener('DOMContentLoaded', () => {
     // Handle logout page access first
     if (auth.handleLogoutPageAccess()) {
+        return;
+    }
+
+    // If on logout page, perform logout UI logic
+    if (auth.isOnLogoutPage()) {
+        const userName = auth.isLoggedIn() ? auth.logout() : 'User';
+        sessionStorage.removeItem('justLoggedOut');
+
+        const nameEl = document.getElementById('userName');
+        if (nameEl) nameEl.textContent = userName;
+
+        const countdownEl = document.getElementById('countdown');
+        let remaining = countdownEl ? parseInt(countdownEl.textContent || '5', 10) : 5;
+        if (Number.isNaN(remaining) || remaining <= 0) remaining = 5;
+
+        const redirectHome = () => {
+            window.location.href = '../index.html';
+        };
+
+        const timer = setInterval(() => {
+            remaining -= 1;
+            if (countdownEl) countdownEl.textContent = String(remaining);
+            if (remaining <= 0) {
+                clearInterval(timer);
+                redirectHome();
+            }
+        }, 1000);
+
+        const cancelLogout = document.getElementById('cancelLogout');
+        if (cancelLogout) {
+            cancelLogout.addEventListener('click', (e) => {
+                e.preventDefault();
+                clearInterval(timer);
+                redirectHome();
+            });
+        }
         return;
     }
 

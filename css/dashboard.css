@@ -7,7 +7,7 @@
 
 .sidebar {
     width: 250px;
-    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 20px 0;
 }
@@ -56,20 +56,20 @@
     justify-content: center;
     border-radius: 999px;
     color: #fff;
-    background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
-    box-shadow: 0 12px 24px rgba(194, 65, 12, 0.3);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 12px 24px rgba(118, 75, 162, 0.35);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .sidebar-nav a.logout-unified:hover {
-    background: linear-gradient(135deg, #f97316 0%, #9a3412 100%);
+    background: linear-gradient(135deg, #667eea 0%, #5a67d8 100%);
     color: #fff;
 }
 
 .sidebar-nav li.active a {
     background: rgba(255, 255, 255, 0.2);
     color: white;
-    border-left: 4px solid #3498db;
+    border-left: 4px solid #667eea;
 }
 
 .main-content {
@@ -143,17 +143,17 @@
 }
 
 .stat-card:nth-child(2) .stat-icon {
-    background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+    background: linear-gradient(135deg, #5a67d8 0%, #7c3aed 100%);
     color: white;
 }
 
 .stat-card:nth-child(3) .stat-icon {
-    background: linear-gradient(135deg, #FF9800 0%, #FF5722 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
     color: white;
 }
 
 .stat-card:nth-child(4) .stat-icon {
-    background: linear-gradient(135deg, #2196F3 0%, #03A9F4 100%);
+    background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
     color: white;
 }
 

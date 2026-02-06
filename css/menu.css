@@ -1,7 +1,7 @@
-/* css/menu.css - Orange Theme */
+/* css/menu.css - Blue/Purple Theme */
 
 .menu-hero {
-    background: linear-gradient(135deg, #FF9800 0%, #FF5722 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 6rem 0;
     text-align: center;
@@ -39,21 +39,21 @@
 .category-btn {
     padding: 10px 20px;
     background: white;
-    border: 2px solid #FF9800;
+    border: 2px solid #667eea;
     border-radius: 50px;
-    color: #FF9800;
+    color: #667eea;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .category-btn:hover {
-    background: #FFF3E0;
+    background: #eef2ff;
     transform: translateY(-2px);
 }
 
 .category-btn.active {
-    background: #FF9800;
+    background: #667eea;
     color: white;
 }
 
@@ -65,7 +65,7 @@
 .menu-search input {
     width: 100%;
     padding: 12px 20px 12px 45px;
-    border: 2px solid #FF9800;
+    border: 2px solid #667eea;
     border-radius: 50px;
     font-size: 1rem;
 }
@@ -75,7 +75,7 @@
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #FF9800;
+    color: #667eea;
 }
 
 .menu-grid {
@@ -134,7 +134,7 @@
 .menu-item-price {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #FF9800;
+    color: #764ba2;
     white-space: nowrap;
 }
 
@@ -154,8 +154,8 @@
 }
 
 .menu-item-category {
-    background: #FFF3E0;
-    color: #FF9800;
+    background: #eef2ff;
+    color: #667eea;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -169,7 +169,7 @@
 
 .btn-add-cart {
     flex: 1;
-    background: #FF9800;
+    background: #667eea;
     color: white;
     border: none;
     padding: 12px;
@@ -184,7 +184,7 @@
 }
 
 .btn-add-cart:hover {
-    background: #F57C00;
+    background: #5a67d8;
 }
 
 .btn-admin {
@@ -196,7 +196,7 @@
 .admin-controls {
     background: #f8f9fa;
     padding: 2rem 0;
-    border-top: 2px solid #FF9800;
+    border-top: 2px solid #667eea;
 }
 
 .admin-controls .container {
@@ -210,7 +210,7 @@
 }
 
 .cart-count {
-    background: #FF5722;
+    background: #764ba2;
     color: white;
     border-radius: 50%;
     width: 20px;
@@ -273,7 +273,7 @@
 
 .modal-header h3 {
     margin: 0;
-    color: #FF9800;
+    color: #667eea;
 }
 
 .close-modal {

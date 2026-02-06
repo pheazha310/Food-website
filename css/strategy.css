@@ -7,7 +7,7 @@
 
 .sidebar {
     width: 250px;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 20px 0;
 }
@@ -56,20 +56,20 @@
     justify-content: center;
     border-radius: 999px;
     color: #fff;
-    background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
-    box-shadow: 0 12px 24px rgba(194, 65, 12, 0.3);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 12px 24px rgba(118, 75, 162, 0.35);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .sidebar-nav a.logout-unified:hover {
-    background: linear-gradient(135deg, #f97316 0%, #9a3412 100%);
+    background: linear-gradient(135deg, #667eea 0%, #5a67d8 100%);
     color: #fff;
 }
 
 .sidebar-nav li.active a {
     background: rgba(255, 255, 255, 0.2);
     color: white;
-    border-left: 4px solid #ff6b6b;
+    border-left: 4px solid #667eea;
 }
 
 .main-content {
@@ -96,7 +96,7 @@
 .user-avatar {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -145,19 +145,19 @@
 }
 
 .strategy-card.active {
-    border-color: #4CAF50;
+    border-color: #667eea;
 }
 
 .strategy-card.planning {
-    border-color: #FF9800;
+    border-color: #7c3aed;
 }
 
 .strategy-card.completed {
-    border-color: #2196F3;
+    border-color: #4338ca;
 }
 
 .strategy-card.on-hold {
-    border-color: #9E9E9E;
+    border-color: #94a3b8;
 }
 
 .strategy-card-header {
@@ -181,23 +181,23 @@
 }
 
 .status-active {
-    background: #d4edda;
-    color: #155724;
+    background: #e0e7ff;
+    color: #3730a3;
 }
 
 .status-planning {
-    background: #fff3cd;
-    color: #856404;
+    background: #ede9fe;
+    color: #5b21b6;
 }
 
 .status-completed {
-    background: #cce5ff;
-    color: #004085;
+    background: #dbeafe;
+    color: #1e3a8a;
 }
 
 .status-on-hold {
-    background: #e2e3e5;
-    color: #383d41;
+    background: #e5e7eb;
+    color: #374151;
 }
 
 .strategy-card-body {
@@ -283,7 +283,7 @@
 
 .modal-header h3 {
     margin: 0;
-    color: #6a11cb;
+    color: #667eea;
 }
 
 .close-modal {

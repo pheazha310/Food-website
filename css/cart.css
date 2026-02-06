@@ -1,17 +1,17 @@
-/* css/cart.css - Warm Cart Theme */
+/* css/cart.css - Blue/Purple Cart Theme */
 
 :root {
     --cart-ink: #1f2937;
     --cart-muted: #4b5563;
-    --cart-warm: #f97316;
-    --cart-warm-dark: #c2410c;
-    --cart-cream: #fff7ed;
-    --cart-sand: #ffedd5;
+    --cart-warm: #667eea;
+    --cart-warm-dark: #764ba2;
+    --cart-cream: #f5f7ff;
+    --cart-sand: #e8edff;
 }
 
 .cart-hero {
     position: relative;
-    background: linear-gradient(140deg, #fff7ed 0%, #ffedd5 45%, #fed7aa 100%);
+    background: linear-gradient(140deg, #f5f7ff 0%, #e8edff 45%, #d9e2ff 100%);
     color: var(--cart-ink);
     padding: 4.5rem 0 3.5rem;
     text-align: center;
@@ -91,7 +91,7 @@
 }
 
 .cart-item:hover {
-    border-color: rgba(249, 115, 22, 0.4);
+    border-color: rgba(102, 126, 234, 0.4);
     box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
     transform: translateY(-2px);
 }
@@ -147,10 +147,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #fff7ed;
+    background: #f5f7ff;
     padding: 6px;
     border-radius: 999px;
-    border: 1px solid rgba(249, 115, 22, 0.2);
+    border: 1px solid rgba(102, 126, 234, 0.2);
 }
 
 .quantity-btn {
@@ -283,7 +283,7 @@
 }
 
 .delivery-option:hover {
-    border-color: rgba(249, 115, 22, 0.5);
+    border-color: rgba(102, 126, 234, 0.5);
     box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
 }
 
@@ -345,7 +345,7 @@
 }
 
 .btn-checkout:hover {
-    background: linear-gradient(135deg, var(--cart-warm-dark) 0%, #9a3412 100%);
+    background: linear-gradient(135deg, var(--cart-warm-dark) 0%, #5a67d8 100%);
 }
 
 .secure-checkout {

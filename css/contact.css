@@ -1,18 +1,18 @@
-/* css/contact.css - Warm Contact Theme */
+/* css/contact.css - Blue/Purple Contact Theme */
 
 :root {
     --contact-ink: #1f2937;
     --contact-muted: #4b5563;
-    --contact-warm: #f97316;
-    --contact-warm-dark: #c2410c;
-    --contact-cream: #fff7ed;
-    --contact-sand: #ffedd5;
+    --contact-warm: #667eea;
+    --contact-warm-dark: #764ba2;
+    --contact-cream: #f5f7ff;
+    --contact-sand: #e8edff;
 }
 
 .contact-hero {
     position: relative;
     padding: 5rem 0 4rem;
-    background: linear-gradient(140deg, #fff7ed 0%, #ffedd5 45%, #fed7aa 100%);
+    background: linear-gradient(140deg, #f5f7ff 0%, #e8edff 45%, #d9e2ff 100%);
     overflow: hidden;
 }
 
@@ -229,7 +229,7 @@
 .form-control:focus {
     outline: none;
     border-color: var(--contact-warm);
-    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
 }
 
 textarea.form-control {
@@ -286,7 +286,7 @@ textarea.form-control {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #fff7ed 0%, #fde68a 100%);
+    background: linear-gradient(135deg, #f5f7ff 0%, #d9e2ff 100%);
     color: var(--contact-ink);
 }
 
