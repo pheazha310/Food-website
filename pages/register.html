@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Food Business</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-card">
+            <div class="register-header">
+                <a href="../index.html" class="back-home">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+                <h1><i class="fas fa-user-plus"></i> Create Account</h1>
+                <p>Join FoodBusiness today for amazing food delivery</p>
+            </div>
+            
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName"><i class="fas fa-user"></i> First Name *</label>
+                        <input type="text" id="firstName" class="form-control" placeholder="Enter first name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName"><i class="fas fa-user"></i> Last Name *</label>
+                        <input type="text" id="lastName" class="form-control" placeholder="Enter last name" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-at"></i> Username *</label>
+                    <input type="text" id="username" class="form-control" placeholder="Choose a username" required>
+                    <small class="form-text">This will be your public display name</small>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password"><i class="fas fa-lock"></i> Password *</label>
+                        <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+                        <small class="form-text">At least 8 characters</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword"><i class="fas fa-lock"></i> Confirm Password *</label>
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="(123) 456-7890">
+                </div>
+                
+                <div class="form-group">
+                    <label for="address"><i class="fas fa-map-marker-alt"></i> Delivery Address</label>
+                    <textarea id="address" class="form-control" rows="2" placeholder="Enter your delivery address"></textarea>
+                </div>
+                
+                <div class="form-check">
+                    <input type="checkbox" id="terms" class="form-check-input" required>
+                    <label for="terms" class="form-check-label">
+                        I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a> *
+                    </label>
+                </div>
+                
+                <div class="form-check">
+                    <input type="checkbox" id="newsletter" class="form-check-input" checked>
+                    <label for="newsletter" class="form-check-label">
+                        Subscribe to our newsletter for updates and promotions
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+                
+                <div class="register-divider">
+                    <span>or</span>
+                </div>
+                
+                <button type="button" class="btn btn-google btn-block">
+                    <i class="fab fa-google"></i> Sign up with Google
+                </button>
+                
+                <button type="button" class="btn btn-facebook btn-block">
+                    <i class="fab fa-facebook-f"></i> Sign up with Facebook
+                </button>
+            </form>
+            
+            <div class="register-footer">
+                <p>Already have an account? <a href="login.html" class="login-link">Sign in here</a></p>
+            </div>
+        </div>
+        
+        <div class="register-benefits">
+            <h2>Why Join FoodBusiness?</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Get your food delivered in under 30 minutes</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-percentage"></i>
+                    <h3>Exclusive Offers</h3>
+                    <p>Members-only discounts and promotions</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-history"></i>
+                    <h3>Order History</h3>
+                    <p>Track and reorder your favorite meals</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-gift"></i>
+                    <h3>Rewards Program</h3>
+                    <p>Earn points with every order</p>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"FoodBusiness has completely changed how I order food. The service is fast, reliable, and the food is always delicious!"</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah Johnson</strong>
+                        <span>Regular Customer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-body success-modal">
+                <i class="fas fa-check-circle"></i>
+                <h3>Account Created Successfully!</h3>
+                <p>Welcome to FoodBusiness! Your account has been created.</p>
+                <p>You can now log in and start ordering delicious food.</p>
+                <div class="success-actions">
+                    <a href="login.html" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Go to Login
+                    </a>
+                    <a href="../index.html" class="btn btn-secondary">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/register.js"></script>
+</body>
+</html>

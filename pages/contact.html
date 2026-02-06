@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Food Business</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/contact.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>FoodBusiness</span>
+                </div>
+                <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="menu.html"><i class="fas fa-utensils"></i> Menu</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html" class="active-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="login.html" id="authLink" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <!-- In admin sidebar navigation -->
+                    <!-- <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <span class="eyebrow">Contact</span>
+                    <h1>Get in Touch With Our Kitchen</h1>
+                    <p>Have a question about your order, catering, or ingredients? We reply fast and take every message personally.</p>
+                    <div class="hero-actions">
+                        <a href="#contactForm" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Message Us</a>
+                        <a href="tel:+11234567890" class="btn btn-secondary"><i class="fas fa-phone"></i> Call Now</a>
+                    </div>
+                </div>
+                <div class="hero-panel">
+                    <div class="panel-card">
+                        <h3>Quick Response</h3>
+                        <p>Average reply time: <strong>under 2 hours</strong></p>
+                        <div class="panel-list">
+                            <span><i class="fas fa-check-circle"></i> Order support</span>
+                            <span><i class="fas fa-check-circle"></i> Catering quotes</span>
+                            <span><i class="fas fa-check-circle"></i> Ingredient info</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-highlights">
+                <div class="highlight-card">
+                    <i class="fas fa-headset"></i>
+                    <div>
+                        <h3>Support Line</h3>
+                        <p>Mon–Fri, 9AM–6PM</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-truck"></i>
+                    <div>
+                        <h3>Delivery Window</h3>
+                        <p>Daily, 11AM–10PM</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-location-dot"></i>
+                    <div>
+                        <h3>Service Area</h3>
+                        <p>Downtown + 10 miles</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Our Location</h3>
+                        <p>123 Food Street</p>
+                        <p>City, State 12345</p>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone Number</h3>
+                        <p>+1 (123) 456-7890</p>
+                        <p>Mon-Fri, 9AM-6PM</p>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Address</h3>
+                        <p>info@foodbusiness.com</p>
+                        <p>support@foodbusiness.com</p>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Opening Hours</h3>
+                        <p>Monday - Friday: 9AM - 10PM</p>
+                        <p>Saturday - Sunday: 10AM - 11PM</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <div class="form-card">
+                        <h2>Send Us a Message</h2>
+                        <p class="form-intro">Tell us what you need and we’ll connect you with the right person.</p>
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" class="form-control" rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                            <p class="form-note">By submitting, you agree to be contacted about your request.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <div class="map-header">
+                    <div>
+                        <span class="eyebrow">Visit Us</span>
+                        <h2>Find Us Here</h2>
+                    </div>
+                    <div class="map-actions">
+                        <a href="https://maps.google.com" class="btn btn-secondary"><i class="fas fa-map"></i> Open Map</a>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Interactive Map Location</p>
+                        <p>123 Food Street, City</p>
+                    </div>
+                </div>
+                <div class="visit-card">
+                    <div>
+                        <h3>Pickup & Tastings</h3>
+                        <p>Schedule a tasting or pickup for larger orders.</p>
+                    </div>
+                    <a href="tel:+11234567890" class="btn btn-primary"><i class="fas fa-calendar"></i> Book a Visit</a>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>What are your delivery hours?</h3>
+                        <p>We deliver daily from 11AM to 10PM. Last orders accepted at 9:30PM.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do you offer catering services?</h3>
+                        <p>Yes! Contact us for custom catering solutions for events and parties.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What payment methods do you accept?</h3>
+                        <p>We accept all major credit cards, PayPal, and cash on delivery.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How can I track my order?</h3>
+                        <p>Once you place an order, you'll receive a tracking link via SMS and email.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>FoodBusiness</h3>
+                    <p>Delivering delicious meals since 2024. Quality food, exceptional service.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Food St, City</p>
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@foodbusiness.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FoodBusiness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/contact.js"></script>
+</body>
+
+</html>

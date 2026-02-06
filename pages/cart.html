@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | Food Business</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cart.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>FoodBusiness</span>
+                </div>
+                <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-links nav-auth">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="menu.html"><i class="fas fa-utensils"></i> Menu</a></li>
+                    <li><a href="cart.html" class="active"><i class="fas fa-shopping-cart"></i> Cart <span id="cartCount" class="cart-count">0</span></a></li>
+                    <li><a href="order-history.html"><i class="fas fa-history"></i> Orders</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="#" id="logoutBtn" class="logout-unified"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Hero -->
+    <section class="cart-hero">
+        <div class="container">
+            <h1>Your Shopping Cart</h1>
+            <p>Review your items before checkout</p>
+        </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="cart-content">
+        <div class="container">
+            <div class="cart-layout">
+                <!-- Cart Items -->
+                <div class="cart-items">
+                    <div class="cart-header">
+                        <h2>Cart Items (<span id="itemCount">0</span>)</h2>
+                        <button class="btn btn-secondary" id="clearCartBtn">
+                            <i class="fas fa-trash"></i> Clear Cart
+                        </button>
+                    </div>
+
+                    <div class="cart-items-list" id="cartItemsContainer">
+                        <!-- Cart items will be loaded by JS -->
+                    </div>
+
+                    <div class="cart-empty" id="emptyCartMessage">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Add some delicious items from our menu!</p>
+                        <a href="menu.html" class="btn btn-primary">
+                            <i class="fas fa-utensils"></i> Browse Menu
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Delivery Fee</span>
+                                <span id="deliveryFee">$2.99</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax (8.5%)</span>
+                                <span id="tax">$0.00</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="totalAmount">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="delivery-options">
+                            <h4>Delivery Options</h4>
+                            <div class="delivery-option">
+                                <input type="radio" id="delivery" name="delivery" checked>
+                                <label for="delivery">
+                                    <i class="fas fa-truck"></i>
+                                    <div>
+                                        <strong>Delivery</strong>
+                                        <small>30-45 minutes</small>
+                                    </div>
+                                </label>
+                                <span>$2.99</span>
+                            </div>
+                            <div class="delivery-option">
+                                <input type="radio" id="pickup" name="delivery">
+                                <label for="pickup">
+                                    <i class="fas fa-store"></i>
+                                    <div>
+                                        <strong>Pickup</strong>
+                                        <small>15-20 minutes</small>
+                                    </div>
+                                </label>
+                                <span>FREE</span>
+                            </div>
+                        </div>
+
+                        <div class="promo-code">
+                            <h4>Promo Code</h4>
+                            <div class="promo-input">
+                                <input type="text" id="promoCode" placeholder="Enter promo code">
+                                <button class="btn btn-secondary" id="applyPromo">Apply</button>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-checkout" id="checkoutBtn">
+                            <i class="fas fa-lock"></i> Proceed to Checkout
+                        </button>
+
+                        <p class="secure-checkout">
+                            <i class="fas fa-shield-alt"></i> Secure checkout
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Complete Your Order</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="checkoutForm">
+                    <div class="form-group">
+                        <label for="deliveryAddress">Delivery Address *</label>
+                        <input type="text" id="deliveryAddress" class="form-control" required placeholder="Enter your full address">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number *</label>
+                            <input type="tel" id="phoneNumber" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deliveryTime">Preferred Time</label>
+                            <select id="deliveryTime" class="form-control">
+                                <option value="asap">ASAP (30-45 min)</option>
+                                <option value="1hour">Within 1 hour</option>
+                                <option value="2hours">Within 2 hours</option>
+                                <option value="specific">Specific time</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialInstructions">Special Instructions</label>
+                        <textarea id="specialInstructions" class="form-control" rows="3" placeholder="Any special requests or delivery notes..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paymentMethod">Payment Method *</label>
+                        <select id="paymentMethod" class="form-control" required>
+                            <option value="">Select payment method</option>
+                            <option value="cash">Cash on Delivery</option>
+                            <option value="card">Credit/Debit Card</option>
+                            <option value="paypal">PayPal</option>
+                        </select>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close-modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Place Order</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>FoodBusiness</h3>
+                    <p>Delivering delicious meals since 2024. Quality food, exceptional service.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Food St, City</p>
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@foodbusiness.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FoodBusiness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/cart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout | Food Business</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/logout.css">
+</head>
+
+<body>
+    <div class="logout-container">
+        <div class="logout-card">
+            <div class="logout-header">
+                <i class="fas fa-sign-out-alt"></i>
+                <h1>Logging Out</h1>
+                <p>You are being logged out of your account</p>
+            </div>
+
+            <div class="logout-content">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+
+                <div class="logout-message">
+                    <h2>Goodbye, <span id="userName">User</span>!</h2>
+                    <p>Thank you for visiting FoodBusiness.</p>
+                    <p>You have been successfully logged out.</p>
+                </div>
+
+                <div class="logout-details">
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Session Ended</h3>
+                            <p>Your login session has been terminated</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h3>Secure Logout</h3>
+                            <p>All session data has been cleared</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-sync"></i>
+                        <div>
+                            <h3>What's Next?</h3>
+                            <p>You'll be redirected to the home page shortly</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="logout-actions">
+                <a href="../index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Go to Home Page Now
+                </a>
+
+                <a href="login.html" class="btn btn-secondary">
+                    <i class="fas fa-sign-in-alt"></i> Login Again
+                </a>
+            </div>
+
+            <div class="logout-footer">
+                <p>Changed your mind? <a href="#" id="cancelLogout">Cancel Logout</a></p>
+                <p class="redirect-timer">Redirecting in <span id="countdown">5</span> seconds...</p>
+            </div>
+        </div>
+
+        <div class="logout-safety">
+            <h2><i class="fas fa-info-circle"></i> Safety Tips</h2>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Always log out from shared devices</li>
+                <li><i class="fas fa-check-circle"></i> Clear browser cache for complete security</li>
+                <li><i class="fas fa-check-circle"></i> Use strong, unique passwords</li>
+                <li><i class="fas fa-check-circle"></i> Enable two-factor authentication when available</li>
+            </ul>
+
+            <div class="quick-links">
+                <h3>Quick Links</h3>
+                <div class="links-grid">
+                    <a href="../index.html" class="quick-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="about.html" class="quick-link">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Us</span>
+                    </a>
+                    <a href="contact.html" class="quick-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                    <a href="menu.html" class="quick-link">
+                        <i class="fas fa-utensils"></i>
+                        <span>Menu</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/logout.js"></script>
+</body>
+
+</html>

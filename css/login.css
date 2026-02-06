@@ -1,0 +1,264 @@
+/* css/login.css */
+
+:root {
+    --login-ink: #1f2937;
+    --login-muted: #4b5563;
+    --login-warm: #f97316;
+    --login-warm-dark: #c2410c;
+    --login-cream: #fff7ed;
+}
+
+body {
+    background: radial-gradient(circle at 15% 20%, rgba(255, 237, 213, 0.7), transparent 45%),
+        radial-gradient(circle at 85% 10%, rgba(254, 215, 170, 0.6), transparent 45%),
+        linear-gradient(130deg, #fff7ed 0%, #fde68a 45%, #f97316 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+}
+
+.login-shell {
+    width: 100%;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 1020px;
+    margin: 0 auto;
+}
+
+.auth-layout {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+.auth-panel {
+    display: grid;
+}
+
+.login-card,
+.register-card {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 24px 50px rgba(15, 23, 42, 0.15);
+    animation: slideUp 0.5s ease;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--login-warm-dark);
+}
+
+.login-header {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    color: var(--login-ink);
+    margin: 10px 0;
+    font-size: 2.2rem;
+    font-family: "Playfair Display", serif;
+}
+
+.login-header p {
+    color: var(--login-muted);
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--login-ink);
+}
+
+.form-group label i {
+    color: var(--login-warm);
+}
+
+.form-control {
+    background: #fffaf5;
+    border-color: #e5e7eb;
+    border-radius: 12px;
+}
+
+.form-control:focus {
+    border-color: var(--login-warm);
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.18);
+}
+
+.btn-block {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.05rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--login-warm) 0%, var(--login-warm-dark) 100%);
+    border: none;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    border: none;
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-check input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--login-warm);
+}
+
+.forgot-password {
+    color: var(--login-warm-dark);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-footer {
+    margin-top: 30px;
+    text-align: center;
+    color: var(--login-muted);
+    font-size: 0.9rem;
+}
+
+.login-footer a {
+    color: var(--login-warm-dark);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.demo-credentials {
+    background: #fff7ed;
+    padding: 16px;
+    border-radius: 14px;
+    margin-top: 20px;
+    text-align: left;
+    border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.demo-credentials h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--login-ink);
+}
+
+.demo-credentials p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: var(--login-muted);
+}
+
+.brand-panel {
+    display: flex;
+}
+
+.brand-card {
+    background: rgba(15, 23, 42, 0.9);
+    color: #f8fafc;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 24px 50px rgba(15, 23, 42, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.brand-card h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+}
+
+.brand-card p {
+    color: #cbd5f5;
+}
+
+.brand-list {
+    display: grid;
+    gap: 0.75rem;
+    font-weight: 500;
+}
+
+.brand-list i {
+    color: #f97316;
+    margin-right: 10px;
+}
+
+.brand-cta .btn-secondary {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 960px) {
+    .auth-layout {
+        grid-template-columns: 1fr;
+    }
+    .brand-panel {
+        order: -1;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 20px;
+    }
+    .login-card,
+    .register-card,
+    .brand-card {
+        padding: 28px;
+    }
+    .login-header h1 {
+        font-size: 1.8rem;
+    }
+}
