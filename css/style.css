@@ -8,8 +8,8 @@
 }
 
 body {
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: var(--bg);
+    color: var(--ink);
     line-height: 1.6;
 }
 
@@ -31,6 +31,9 @@ body {
     --bg: #f8f9fa;
     --card: #ffffff;
     --glass: rgba(255, 255, 255, 0.14);
+    --border: rgba(148, 163, 184, 0.2);
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --section: #ffffff;
 }
 
 .header {
@@ -60,6 +63,17 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 1.25rem;
+}
+
+.nav-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-like:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
 }
 
 .logo {
@@ -407,10 +421,10 @@ body {
 /* Cards */
 
 .card {
-    background: white;
+    background: var(--card);
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow);
     transition: transform 0.3s ease;
     margin-bottom: 20px;
 }
@@ -430,7 +444,7 @@ body {
     color: #e5e7eb;
     padding: 3.5rem 0 2rem;
     margin-top: 3rem;
-    border-top: 1px solid rgba(148, 163, 184, 0.2);
+    border-top: 1px solid var(--border);
 }
 
 .footer::before {
@@ -535,7 +549,7 @@ body {
 .footer-bottom {
     position: relative;
     margin-top: 2rem;
-    border-top: 1px solid rgba(148, 163, 184, 0.2);
+    border-top: 1px solid var(--border);
     padding-top: 1.2rem;
     display: flex;
     justify-content: space-between;
@@ -580,10 +594,12 @@ body {
 .form-control {
     width: 100%;
     padding: 12px 16px;
-    border: 2px solid #e0e0e0;
+    border: 2px solid rgba(148, 163, 184, 0.35);
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
+    background: var(--card);
+    color: var(--ink);
 }
 
 .form-control:focus {

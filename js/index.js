@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadFeaturedItems() {
     const menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
     const featuredContainer = document.getElementById('featuredItems');
+    const likedItems = JSON.parse(localStorage.getItem('likedItems')) || {};
 
     if (!featuredContainer) return;
 
@@ -15,6 +16,9 @@ function loadFeaturedItems() {
 
     featuredContainer.innerHTML = featuredItems.map(item => `
         <div class="menu-item">
+            <button class="like-btn ${likedItems[item.id] ? 'is-liked' : ''}" aria-label="Like ${item.name}" data-id="${item.id}">
+                <i class="fas fa-heart"></i>
+            </button>
             <img src="${item.image}" alt="${item.name}">
             <div class="menu-item-content">
                 <h3>${item.name}</h3>
@@ -26,6 +30,13 @@ function loadFeaturedItems() {
             </div>
         </div>
     `).join('');
+
+    document.querySelectorAll('.like-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const itemId = parseInt(e.currentTarget.dataset.id);
+            toggleLike(itemId, e.currentTarget);
+        });
+    });
 
     // Add event listeners to add-to-cart buttons
     document.querySelectorAll('.add-to-cart').forEach(button => {
@@ -40,6 +51,23 @@ function loadFeaturedItems() {
             addToCart(itemId);
         });
     });
+}
+
+function toggleLike(itemId, button) {
+    const likedItems = JSON.parse(localStorage.getItem('likedItems')) || {};
+    const isLiked = Boolean(likedItems[itemId]);
+
+    if (isLiked) {
+        delete likedItems[itemId];
+    } else {
+        likedItems[itemId] = true;
+    }
+
+    localStorage.setItem('likedItems', JSON.stringify(likedItems));
+
+    if (button) {
+        button.classList.toggle('is-liked', !isLiked);
+    }
 }
 
 function addToCart(itemId) {
